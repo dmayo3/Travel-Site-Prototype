@@ -1,0 +1,54 @@
+<head>
+	<meta charset="utf-8">
+	<title>TravelSite</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TravelSite">
+    <meta name="author" content="Daniel Mayo">
+</head>
+
+<body>
+  {{> navbar}}
+  {{> chooseDestination}}
+</body>
+
+<template name="navbar">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="#">TravelSite</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+</template>
+
+<template name="chooseDestination">
+    <div class="main container">
+    	<div id="loadingPhotos" class="loading-spinner">
+    		<img src="img/ajax-loader.gif" alt="Loading Photos...">
+    		<p>Loading Photos...</p>
+    	</div>
+    	<div class="row">
+    		<div class="span12">
+    			<h1>Where would you like to go?</h1>
+    			<form class="choose-destination well form-inline">
+    				<label for="destination">Destination</label>
+    				<input id="destination" name="destination" type="text" placeholder="Anywhere in the world..." required>
+    				<button type="submit" class="btn">Go &raquo;</button>
+    			</form>
+    		</div>
+    	</div>
+    	<div class="row images"></div>
+    </div>
+</template>

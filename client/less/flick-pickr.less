@@ -1,0 +1,41 @@
+@import "variables.less";
+@import "mixins.less";
+
+@media (min-width: 979px) {
+  .main {
+    margin-top: 6em;
+  }
+}
+
+.thumbnail {
+	background-color: @white;
+}
+
+.form-inline label {
+	display: block;
+}
+
+h1 {
+	margin-bottom: 0.5em;
+}
+
+.loading-spinner {
+	@loadingBoxWidth: 140px;
+	@loadingBoxHeight: 80px;
+
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	z-index: 99;
+	display: block;
+	width: @loadingBoxWidth;
+	height: @loadingBoxHeight;
+	margin-top: -@loadingBoxHeight / 2;
+	margin-left: -@loadingBoxWidth / 2;
+
+	#font .sans-serif(1.5em, bold, 1.1em);
+	text-align: center;
+
+	#translucent .background(lighten(@grayLight, 20%), 0.8);
+	.border-radius(5px);
+}

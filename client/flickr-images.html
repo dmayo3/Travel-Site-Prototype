@@ -1,0 +1,18 @@
+<template name="flickrImages">
+	<ul class="thumbnails" style="display: none;">
+		{{#each photos}}
+		<li class="photo-container span3">
+			<div class="thumbnail">
+				<a id="{{photo.id}}" href="#" class="photo-link">
+					<img alt="{{photo.title}}" src="{{photo.url}}"/>
+				</a>
+
+				<p>{{photo.title}}</p>
+				<a href="{{photo.link}}">
+					Photo by: {{photo.owner}}
+				</a>
+			</div>
+		</li>
+		{{/each}}
+	</ul>
+</template>
