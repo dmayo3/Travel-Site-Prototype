@@ -1,11 +1,11 @@
 $ ->
 	$("body").on "click", ".photo-link", ->
 
-		id = $(this).attr "id"
+		id = $(this).attr("id")
 
 		photo = photos.get(id)
 
 		if photo
-			render(new Photos([photo]))
+			PhotoDisplay.show(new Photos([photo]))
 
 		false
