@@ -1,22 +1,11 @@
-@import "variables.less";
-@import "mixins.less";
-
-@media (min-width: 979px) {
-  .main {
-    margin-top: 6em;
-  }
+@media (max-width: 767px) {
+	.thumbnails > li {
+	  margin-left: 0;
+	}
 }
 
 .thumbnail {
 	background-color: @white;
-}
-
-.form-inline label {
-	display: block;
-}
-
-h1 {
-	margin-bottom: 0.5em;
 }
 
 .loading-spinner {
@@ -26,7 +15,7 @@ h1 {
 	position: fixed;
 	top: 50%;
 	left: 50%;
-	z-index: 99;
+	z-index: @zindexModal;
 	display: block;
 	width: @loadingBoxWidth;
 	height: @loadingBoxHeight;

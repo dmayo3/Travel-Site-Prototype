@@ -1,0 +1,6 @@
+#!/bin/bash
+
+OPTIONS=--compile $*
+
+cd client/less/ && recess $OPTIONS travelsite.less > travelsite.css && cd -
+
