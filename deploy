@@ -1,0 +1,4 @@
+#!/bin/bash
+
+meteor deploy my-early-travelsite-demo-project.meteor.com
+
