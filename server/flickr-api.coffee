@@ -27,7 +27,7 @@ class PhotoApi
 	search: (query) ->
 		parameters = _.extend defaultParameters, {text: query}
 		
-		result = Meteor.http.call "GET", endPoint, {params: parameters}
+		result = Meteor.http.get endPoint, {params: parameters, timeout: 5000}
 
 		if !responseOK(result)
 			throw {
