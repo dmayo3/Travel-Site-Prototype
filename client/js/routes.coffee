@@ -1,47 +1,28 @@
-class NavigationMenu
-	# Wrapper for path.js API that updates the navigation menu automatically
-	# Unfortunately, Path.map(...).enter(...) does not allow us to access
-	# the 'this.path' property, hence why this uses custom code.
-	map: (route) ->
-		to: (action) ->
-			Path.map(route).to ->
-				updateNavMenu.apply(this)
-				action.apply(this)
+# Configure and setup: routing, history and link handling
+#
+# All other routes are defined automatically by classes in the controllers
+# directory. This script must be loaded after the controllers, which meteor
+# will do because the controllers are in a subdirectory.
 
-	updateNavMenu = ->
-		$(".nav .active").removeClass("active")
-		$('.nav [href="' + this.path + '"]').parent().addClass("active")
+Meteor.startup ->
 
-class Router
-	nav = new NavigationMenu
-
-	defineRoutes: ->
+	mainRoutes = ->
 		Path.root("/")
-
-		nav.map("/").to ->
-			# Do nothing
-
-		nav.map("/about").to ->
-			alert("About")
-
-		nav.map("/contact").to ->
-			alert("Contact")
 
 		Path.rescue ->
 			alert("404: Page Not Found")
 
-	# Route all link clicks through PathJS
-	rerouteAllHyperlinks: ->
+	rerouteAllHyperlinks = ->
 		$("body").on "click", "a", (event) ->
 			event.preventDefault()
 
 			Path.history.pushState {}, "", $(this).attr("href")
 
-Meteor.startup ->
-	router = new Router
-	router.defineRoutes()
-	router.rerouteAllHyperlinks()
-	# Activate Path.js routing
+	mainRoutes()
+	rerouteAllHyperlinks()
+
+	# Activate path.js routing
 	Path.history.listen()
-	# Initialise with current location
+
+	# Initialise page with current location
 	Path.history.pushState {}, "", window.document.location.pathname
