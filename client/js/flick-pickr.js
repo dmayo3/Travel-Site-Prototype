@@ -4,6 +4,30 @@ Meteor.startup(function() {
 	displayPhotos("beautiful beaches");
 });
 
+Photos = new Meteor.Collection(null);
+
+Session.set("loadingPhotos", true);
+
+Template.flickrImages.photos = function() {
+	var photos = Photos.find({});
+	console.log(photos);
+	return photos;
+};
+Template.chooseDestination.loadingPhotos = function() {
+	return Session.get("loadingPhotos");
+};
+
+Meteor.autosubscribe(function() {
+	var page = Session.get("currentPage");
+	var loading = Session.get("loadingPhotos");
+	
+	if (page == "chooseDestination" && loading === false) {
+		Meteor.defer(function() {
+			PhotoDisplay.show();
+		});
+	}
+});
+
 Template.chooseDestination.events = {
 	'submit .choose-destination': function(event) {
 		event.preventDefault();
@@ -13,15 +37,18 @@ Template.chooseDestination.events = {
 };
 
 function displayPhotos(query) {
-	Meteor.defer(function() {
-		$('#loadingPhotos').show();
-	});
+	Session.set("loadingPhotos", true);
 
 	photoApi.search(query, processPhotos);
 }
 
 function processPhotos(photos) {
-	window.photos = photos;
+	// Replace existing photos
+	Photos.remove({});
 
-	PhotoDisplay.show(photos);
+	_.each(photos, function(photo) {
+		Photos.insert(photo);
+	});
+
+	Session.set("loadingPhotos", false);
 }

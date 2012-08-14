@@ -9,12 +9,10 @@ class NavigationController extends BaseController
 			"chooseDestination"
 
 		@map "/about", ->
-			alert("About")
-			false
+			"about"
 
 		@map "/contact", ->
-			alert("Contact")
-			false
+			"contact"
 
 	updateNavMenu = (path) ->
 		$(".nav .active").removeClass("active")

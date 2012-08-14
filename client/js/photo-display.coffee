@@ -1,27 +1,20 @@
 class PhotoDisplay
 	@minPortraitTabletSize = 768 #px
 
-	@show: (photos) ->
-		liveHtml = Meteor.ui.render ->
-			Template.flickrImages(photos)
+	@show: ->
+		if window.document.documentElement.clientWidth >= PhotoDisplay.minPortraitTabletSize
+			displayAction = showPhotos withMasonryLayout
+		else
+			displayAction = showPhotos withFluidLayout
 
-		Meteor.defer ->
-			$(".images").html(liveHtml)
-
-			if window.document.documentElement.clientWidth >= PhotoDisplay.minPortraitTabletSize
-				displayAction = showPhotos withMasonryLayout
-			else
-				displayAction = showPhotos withFluidLayout
-
-			$('.thumbnails').imagesLoaded(displayAction)
+		$('.thumbnails').imagesLoaded(displayAction)
 
 	showPhotos = (layoutFunction) ->
 		# Return function that wraps layoutFunction
 		->
 			thumbnails = this
-			thumbnails.show()
+			this.show()
 			layoutFunction(thumbnails)
-			$('#loadingPhotos').hide()
 
 	withFluidLayout = ->
 		# No-op

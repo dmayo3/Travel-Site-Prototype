@@ -8,4 +8,4 @@ class PhotoApi
 					"error": error
 				}
 
-			callback new Photos(result.list)
+			callback result.list
