@@ -30,6 +30,8 @@ class PhotoApi
 		result = Meteor.http.get endPoint, {params: parameters, timeout: 5000}
 
 		if !responseOK(result)
+			console.log("Could not fetch images from Flickr")
+			console.log(result)
 			throw {
 				"message": "Could not fetch images from Flickr"
 				"result": result
