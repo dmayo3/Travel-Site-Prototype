@@ -15,8 +15,11 @@ Meteor.startup ->
 	rerouteAllHyperlinks = ->
 		$("body").on "click", "a", (event) ->
 			event.preventDefault()
+			
+			url = $(this).attr("href")
 
-			Path.history.pushState {}, "", $(this).attr("href")
+			if url
+				Path.history.pushState {}, "", url
 
 	mainRoutes()
 	rerouteAllHyperlinks()
