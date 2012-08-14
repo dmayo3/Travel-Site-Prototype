@@ -8,7 +8,7 @@ class PhotoDisplay
 		Meteor.defer ->
 			$(".images").html(liveHtml)
 
-			if window.screen.width >= @minPortraitTabletSize
+			if window.screen.width >= PhotoDisplay.minPortraitTabletSize
 				displayAction = showPhotos withMasonryLayout
 			else
 				displayAction = showPhotos withFluidLayout
