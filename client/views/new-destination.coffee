@@ -3,9 +3,11 @@ Template.newDestination.events =
 		event.preventDefault()
 		
 		destination =
-			destination: Template.newDestination.destination()
+			name: Template.newDestination.destination()
 			photo: Template.newDestination.photo()
 			description: $("#description").val().substr(0, 2000)
 
-		console.log("Create destination: " + destination)
-		#DestinationService.create(destination)
+		id = DestinationService.create(destination)
+
+		# Need some sort of a wrapper for this!
+		Path.history.pushState {}, "", "/destination/#{id}"
