@@ -1,6 +1,6 @@
 class PhotoApi
 
-	search: (query, callback) ->
+	@search: (query, callback) ->
 		Meteor.call "searchPhotos", query, (error, result) ->
 			if error
 				throw {

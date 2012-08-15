@@ -22,7 +22,7 @@ class PhotoDisplay
 
 	# Runs in context of the thumbnails container
 	withMasonryLayout = ->
-		@masonry()
+		@masonry
 			itemSelector: '.photo-container'
 			columnWidth: (containerWidth) ->
 				containerWidth / 4;

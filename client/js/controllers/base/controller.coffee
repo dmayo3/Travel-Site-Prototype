@@ -33,4 +33,3 @@ class BaseController
 
 			$(".main.container").html(liveHtml)
 			Session.set("currentPage", page)
-			console.log("currentPage = " + page)
