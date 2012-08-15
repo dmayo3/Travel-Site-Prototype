@@ -9,5 +9,4 @@ Template.newDestination.events =
 
 		id = DestinationService.create(destination)
 
-		# Need some sort of a wrapper for this!
-		Path.history.pushState {}, "", "/destination/#{id}"
+		Views.redirectTo("/destination/#{id}")

@@ -23,12 +23,4 @@ class BaseController
 		view = action(request)
 
 		if view
-			switchTo(view)
-
-	switchTo = (page) ->
-		Meteor.defer ->
-			# TODO handle page not found
-			liveHtml = Meteor.ui.render ->
-				Template[page]()
-
-			$(".main.container").html(liveHtml)
+			Views.display(view)

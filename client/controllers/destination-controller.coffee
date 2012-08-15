@@ -3,6 +3,7 @@ class DestinationController extends BaseController
 	requests: ->
 
 		@map "/destination/new/:destination/photo/:id", (request) ->
+			# TODO error handling
 			Template.newDestination.photo = ->
 				Photos.findOne({"photo.id": request.params["id"]})
 
@@ -12,15 +13,15 @@ class DestinationController extends BaseController
 			"newDestination"
 
 		@map "/destination/:id", (request) ->
+			# TODO error handling
 			destination = Destinations.findOne({_id: request.params["id"]})
 
-			if destination
-				console.log("Found destination " + request.params["id"])
-				console.log("Destination: " + destination.name)
-			
-			# placeholder
-			Path.history.pushState {}, "", "/"
+			if !destination
+				Views.notFound()
 
-			false
+			Template.viewDestination.destination = ->
+				destination
+
+			"viewDestination"
 
 new DestinationController

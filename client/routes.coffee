@@ -10,7 +10,7 @@ Meteor.startup ->
 		Path.root("/")
 
 		Path.rescue ->
-			alert("404: Page Not Found")
+			Views.notFound()
 
 	rerouteHyperlinks = ->
 		$("body").on "click", "a", (event) ->		
@@ -20,8 +20,7 @@ Meteor.startup ->
 
 			if url && url.match(relativeUrl)
 				event.preventDefault()
-				
-				Path.history.pushState {}, "", url
+				Views.redirectTo(url)
 
 	mainRoutes()
 	rerouteHyperlinks()
@@ -30,4 +29,4 @@ Meteor.startup ->
 	Path.history.listen()
 
 	# Initialise page with current location
-	Path.history.pushState {}, "", window.document.location.pathname
+	Views.redirectTo(window.document.location.pathname)

@@ -1,8 +1,6 @@
 Remove Flickr API key from code! Use DeployConfig instead.
 Use meteor dependencies helper from atmostphere repo
-Try to fix less smartpackage issue
 Fix masonry layout / resizing issue
-Add 404 page
 Error handling
 Improve URL format (may need to fix bug in path.js)
 Avoid having to construct controllers
@@ -12,3 +10,4 @@ Optimize JS size
 DONE
  - Convert JS -> Coffeescript -
  - Fix hyperlink handling -
+ - Add 404 page -
