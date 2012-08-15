@@ -9,24 +9,18 @@ Photos = new Meteor.Collection(null);
 Session.set("loadingPhotos", true);
 
 Template.flickrImages.photos = function() {
-	var photos = Photos.find({});
-	console.log(photos);
-	return photos;
+	return Photos.find({});
 };
 Template.chooseDestination.loadingPhotos = function() {
 	return Session.get("loadingPhotos");
 };
-
-Meteor.autosubscribe(function() {
-	var page = Session.get("currentPage");
-	var loading = Session.get("loadingPhotos");
-	
-	if (page == "chooseDestination" && loading === false) {
-		Meteor.defer(function() {
-			PhotoDisplay.show();
-		});
-	}
-});
+Template.flickrImages.applyLayout = function() {
+	// This is hack that gets called when the images are loaded into view
+	Meteor.defer(function() {
+		PhotoDisplay.show();
+	});
+	return "";
+}
 
 Template.chooseDestination.events = {
 	'submit .choose-destination': function(event) {

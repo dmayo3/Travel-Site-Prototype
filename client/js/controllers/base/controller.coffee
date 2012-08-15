@@ -26,11 +26,11 @@ class BaseController
 			switchTo(view)
 
 	switchTo = (page) ->
-		# TODO error handling
-		liveHtml = Meteor.ui.render ->
-			Session.get("render")
-			Template[page]()
-
 		Meteor.defer ->
+			# TODO handle page not found
+			liveHtml = Meteor.ui.render ->
+				Template[page]()
+
 			$(".main.container").html(liveHtml)
 			Session.set("currentPage", page)
+			console.log("currentPage = " + page)
