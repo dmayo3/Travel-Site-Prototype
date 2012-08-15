@@ -32,4 +32,3 @@ class BaseController
 				Template[page]()
 
 			$(".main.container").html(liveHtml)
-			Session.set("currentPage", page)
