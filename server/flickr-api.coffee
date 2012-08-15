@@ -43,7 +43,7 @@ class PhotoApi
 		result.statusCode == 200 && result.data && result.data.stat && result.data.stat == "ok"
 
 	parse = (response) ->
-		results = []
+		photos = []
 
 		_.each response.photos.photo, (photo) ->
 			size = "n"
@@ -52,7 +52,7 @@ class PhotoApi
 				".static.flickr.com/" + photo.server + "/" +
 				photo.id + "_" + photo.secret + "_" + size + ".jpg"
 			
-			results.push
+			photos.push
 				photo:
 					id: photo.id
 					link: "http://www.flickr.com/photos/" + photo.owner + "/" + photo.id
@@ -60,7 +60,7 @@ class PhotoApi
 					url: imageUrl
 					owner: photo.ownername
 
-		new Photos(results)
+		photos
 
 api = new PhotoApi
 
