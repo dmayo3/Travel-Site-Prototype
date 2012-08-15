@@ -1,10 +1,12 @@
-Fix hyperlink handling
-Refactor
-Convert JS -> Coffeescript
 Remove Flickr API key from code! Use DeployConfig instead.
+Use meteor dependencies helper from atmostphere repo
 Try to fix less smartpackage issue
 Fix masonry layout / resizing issue
 Error handling
 Avoid having to construct controllers
 Optimize CSS size
 Optimize JS size
+
+DONE
+ - Convert JS -> Coffeescript -
+ - Fix hyperlink handling -

@@ -2,19 +2,26 @@
 	<div class="row">
 		<div class="span6">
 			<h1>New Destination</h1>
-
-			{{#unless photo}}
-				<p>Sorry, could not find the photo you selected.</p>
-			{{/unless}}
 		</div>
 	</div>
 
 	<div class="row">
-		{{#if photo}}
-			{{#with photo}}
-				{{> photoStandalone}}
-			{{/with}}
-		{{/if}}
+		<div class="span3">
+			{{#if photo}}
+				{{#with photo}}
+					{{> photoStandalone}}
+				{{/with}}
+			{{/if}}
+		</div>
+
+		<div class="span6">
+			<form class="well form-vertical">
+				<label for="description">Description</label>
+				<textarea id="description"></textarea>
+
+				<button type="submit" class="btn">Create Destination &raquo;</button>
+			</form>
+		</div>
 	</div>
 
 </template>

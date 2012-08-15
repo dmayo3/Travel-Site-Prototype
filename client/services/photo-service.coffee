@@ -1,5 +1,3 @@
-Photos = new Meteor.Collection(null)
-
 class PhotoService
 	
 	@displayPhotos: (query) ->
