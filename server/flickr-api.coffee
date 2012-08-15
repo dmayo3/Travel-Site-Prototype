@@ -27,7 +27,7 @@ class PhotoApi
 	search: (query) ->
 		parameters = _.extend defaultParameters, {text: query}
 		
-		result = Meteor.http.get endPoint, {params: parameters, timeout: 5000}
+		result = Meteor.http.get endPoint, {params: parameters, timeout: 10000}
 
 		if !responseOK(result)
 			console.log("Could not fetch images from Flickr")
