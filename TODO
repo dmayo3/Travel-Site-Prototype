@@ -1,3 +1,9 @@
 Refactor
+Fix hyperlink handling
 Convert JS -> Coffeescript
 Remove Flickr API key from code! Use DeployConfig instead.
+Try to fix less smartpackage issue
+Fix masonry layout / resizing issue
+Error handling
+Optimize CSS size
+Optimize JS size
