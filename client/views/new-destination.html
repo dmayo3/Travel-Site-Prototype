@@ -1,0 +1,20 @@
+<template name="newDestination">
+	<div class="row">
+		<div class="span6">
+			<h1>New Destination</h1>
+
+			{{#unless photo}}
+				<p>Sorry, could not find the photo you selected.</p>
+			{{/unless}}
+		</div>
+	</div>
+
+	<div class="row">
+		{{#if photo}}
+			{{#with photo}}
+				{{> photoStandalone}}
+			{{/with}}
+		{{/if}}
+	</div>
+
+</template>
