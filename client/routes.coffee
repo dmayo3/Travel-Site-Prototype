@@ -12,17 +12,19 @@ Meteor.startup ->
 		Path.rescue ->
 			alert("404: Page Not Found")
 
-	rerouteAllHyperlinks = ->
-		$("body").on "click", "a", (event) ->
-			event.preventDefault()
-			
+	rerouteHyperlinks = ->
+		$("body").on "click", "a", (event) ->		
 			url = $(this).attr("href")
 
-			if url
+			relativeUrl = /^\/.*/ # Starts with #
+
+			if url && url.match(relativeUrl)
+				event.preventDefault()
+				
 				Path.history.pushState {}, "", url
 
 	mainRoutes()
-	rerouteAllHyperlinks()
+	rerouteHyperlinks()
 
 	# Activate path.js routing
 	Path.history.listen()
