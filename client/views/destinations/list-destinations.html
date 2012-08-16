@@ -1,0 +1,33 @@
+<template name="listDestinations">
+
+	<div class="row">
+		<h1>Destinations</h1>
+	</div>
+
+	<ul class="thumbnails">
+		{{#each destinations}}
+			<li class="span3">
+				{{> destinationSummary}}
+			</li>
+		{{/each}}
+	</ul>
+
+</template>
+
+<template name="destinationSummary">
+	<div class="thumbnail">
+		<h2>{{name}}</h2>
+		
+		<a href="/destination/{{url _id}}">
+			{{#with photo}}
+				{{> photoImage}}
+			{{/with}}
+		</a>
+
+		<p>{{description}}</p>
+
+		{{#with photo}}
+			{{> photoAttribution}}
+		{{/with}}
+	</div>
+</template>

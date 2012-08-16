@@ -1,6 +1,4 @@
 <template name="photoCaption">
 	<p>{{photo.title}}</p>
-	<a href="{{photo.link}}" target="_blank">
-		Photo by: {{photo.owner}}
-	</a>
+	{{> photoAttribution}}
 </template>

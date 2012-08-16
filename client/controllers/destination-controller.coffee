@@ -13,15 +13,35 @@ class DestinationController extends BaseController
 			"newDestination"
 
 		@map "/destination/:id", (request) ->
-			# TODO error handling
-			destination = Destinations.findOne({_id: request.params["id"]})
-
-			if !destination
-				Views.notFound()
-
 			Template.viewDestination.destination = ->
-				destination
+				if destinationsLoaded()
+					return getDestination(request.params["id"])
+				else
+					return null
 
 			"viewDestination"
+
+		@map "/destinations", ->
+			Template.listDestinations.destinations = ->
+				getAllDestinations()
+			
+			"listDestinations"
+
+	destinationsLoaded = ->
+		Session.get("destinationsLoaded") == true
+
+	getAllDestinations = ->
+		if destinationsLoaded()
+			return Destinations.find({})
+		else
+			return null
+
+	getDestination = (id) ->
+		destination = Destinations.findOne({_id: id})
+
+		if !destination
+			Views.notFound()
+
+		destination
 
 new DestinationController

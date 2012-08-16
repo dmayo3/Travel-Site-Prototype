@@ -1,5 +1,6 @@
 <template name="viewDestination">
 
+	{{#if destination}}
 	<div class="row">
 		<div class="span12">
 			<h1>Destination: {{destination.name}}</h1>
@@ -16,5 +17,13 @@
 			<p>{{destination.description}}</p>
 		</div>
 	</div>
+	{{/if}}
+	{{#else}}
+	<div class="row">
+		<div class="span12">
+			<h1>Loading, please wait...</h1>
+		</div>
+	</div>
+	{{/else}}
 
 </template>

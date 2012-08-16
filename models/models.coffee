@@ -4,4 +4,5 @@ if Meteor.is_server
 	Meteor.publish "destinations", ->
 		Destinations.find({})
 else
-	Meteor.subscribe "destinations"
+	Meteor.subscribe "destinations", ->
+		Session.set("destinationsLoaded", true)
