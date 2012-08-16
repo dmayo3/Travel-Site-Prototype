@@ -16,11 +16,9 @@ class BaseController
 			process.call(controller, request, action)
 
 	process = (request, action) ->
-		# Call before method if defined by subclass
-		if @before
-			@before(request)
-
 		view = action(request)
 
 		if view
 			Views.display(view)
+			# Trigger a page change event
+			$(window.location).triggerHandler("change", request.path)

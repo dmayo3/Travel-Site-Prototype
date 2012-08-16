@@ -1,21 +1,15 @@
 class NavigationController extends BaseController
-	
-	before: (request) ->
-		updateNavMenu(request.path)
 
 	requests: ->
 
 		@map "/", ->
-			"chooseDestination"
+			Views.redirectTo("/destinations")
+			false
 
 		@map "/about", ->
 			"about"
 
 		@map "/contact", ->
 			"contact"
-
-	updateNavMenu = (path) ->
-		$(".nav .active").removeClass("active")
-		$(".nav [href='#{path}']").parent().addClass("active")
 
 new NavigationController

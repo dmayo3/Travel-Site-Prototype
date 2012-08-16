@@ -2,6 +2,9 @@ class DestinationController extends BaseController
 	
 	requests: ->
 
+		@map "/create-destination", ->
+			"chooseDestination"
+
 		@map "/destination/new/:destination/photo/:id", (request) ->
 			# TODO error handling
 			Template.newDestination.photo = ->
@@ -27,6 +30,7 @@ class DestinationController extends BaseController
 			
 			"listDestinations"
 
+	# TODO move to service
 	destinationsLoaded = ->
 		Session.get("destinationsLoaded") == true
 
