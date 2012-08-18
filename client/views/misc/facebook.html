@@ -1,0 +1,10 @@
+<template name="facebookAPI">
+	{{loadJS}}
+	<div id="fb-root"></div>
+</template>
+
+<template name="facebookComments">
+	<div class="fb-comments" data-href="{{thisPageURL}}" data-num-posts="3" data-width="470">
+	</div>
+	{{render}}
+</template>
