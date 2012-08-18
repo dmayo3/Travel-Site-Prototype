@@ -1,3 +1,4 @@
+# DEPRECATED. Use ApiService instead
 class PhotoApi
 
 	@search: (query, callback) ->

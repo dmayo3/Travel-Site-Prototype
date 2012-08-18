@@ -1,12 +1,5 @@
-Meteor.startup ->
-	PhotoService.displayPhotos("beautiful beaches")
-
 Template.chooseDestination.loadingPhotos = ->
 	Session.get("loadingPhotos")
-
-# TODO this is a placeholder
-Template.photoForDestination.destination = ->
-	"unknown"
 
 Template.chooseDestination.events =
 	'submit .choose-destination': (event) ->

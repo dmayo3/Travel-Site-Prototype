@@ -1,29 +1,111 @@
 <template name="viewDestination">
 
 	{{#if destination}}
-	<div class="row">
-		<div class="span12">
-			<h1>Destination: {{destination.name}}</h1>
-		</div>
-	</div>
-	<div class="row">
+		{{#with destination}}
 
+			<div class="row">
+				<div class="span12">
+					<h1>Destination: {{name}}</h1>
+				</div>
+			</div>
+			{{> destinationInfo}}
+
+		{{/with}}
+	{{/if}}
+	{{#else}}
+		<div class="row">
+			<div class="span12">
+				<h1>Loading, please wait...</h1>
+			</div>
+		</div>
+	{{/else}}
+
+</template>
+
+<template name="destinationInfo">
+
+	<div class="row">
 		<div class="span3">
-			{{#with destination.photo}}
+			{{#with photo}}
 				{{> photoStandalone}}
 			{{/with}}
 		</div>
+		{{#if location}}
+			{{#with location}}
+				<div class="span5">
+					{{> locationInfo}}
+				</div>
+			{{/with}}
+		{{/if}}
 		<div class="span4">
-			<p>{{destination.description}}</p>
+			<h2>Description</h2>
+			<p>{{description}}</p>
 		</div>
-	</div>
-	{{/if}}
-	{{#else}}
-	<div class="row">
-		<div class="span12">
-			<h1>Loading, please wait...</h1>
+		<div class="span5">
+			{{> destinationLinks}}
 		</div>
+		{{> showTweets}}
 	</div>
-	{{/else}}
 
+</template>
+
+<template name="locationInfo">
+	<h2>Location</h2>
+	<p>
+		<em>Note</em>: this information is provided by a third party service and may not be accurate. It's more likely to be correct for well-known places and major cities.
+	</p>
+	<ul>
+		<li>Country: {{country}}</li>
+		<li>City: {{city}}</li>
+		<li>Nearest airport: {{airport}}</li>
+	</ul>
+</template>
+
+<template name="destinationLinks">
+	<h2>Links</h2>
+	{{#if location}}
+		{{#with location}}
+		<p>
+			<a class="btn" href="http://www.skyscanner.net/flights-to/{{url airport}}/cheap-flights.html" target="_blank">
+				Find Cheap Flights to {{airport}}
+			</a>
+		</p>
+		<p>
+			<a class="btn" href="http://www.pintprice.com/city.php?/{{url city}}/{{url country}}" target="_blank">
+				Price of a Pint of Beer in {{city}}
+			</a>
+		</p>
+		<p>
+			<a class="btn" href="http://www.hostelworld.com/guides/city-guides/{{url city}}/{{url country}}/" target="_blank">
+				Free City Guides on Hostelworld
+			</a>
+		</p>
+		{{/with}}
+	{{/if}}
+	<p>
+		<a class="btn" href="http://www.hostelworld.com/search?search_keywords={{url name}}" target="_blank">
+			Find Hostels and B&amp;Bs
+		</a>
+	</p>
+	<p>
+		<a class="btn" href="http://www.tripadvisor.com/Search?q={{url name}}" target="_blank">
+			Search for {{name}} on TripAdvisor
+		</a>
+	</p>
+	<p>
+		<a class="btn" href="http://www.lonelyplanet.com/searchResult?q={{url name}}" target="_blank">
+			Lonely Planet Guides
+		</a>
+	</p>
+</template>
+
+<template name="showTweets">
+	{{#if tweets}}
+		<div class="span4">
+			<h2>What people are saying about {{name}}...</h2>
+			{{#each tweets}}
+				<p>{{text}}</p>
+			{{/each}}
+		</div>
+	{{/if}}
 </template>
