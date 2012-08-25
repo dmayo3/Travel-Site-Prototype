@@ -8,7 +8,7 @@ Remove Flickr API key from code! Use DeployConfig instead.
 Use meteor dependencies helper from atmostphere repo
 Fix masonry layout / resizing issue
 Error handling
-Improve URL format (may need to fix bug in path.js)
+Improve URL format & RESTfulness (may need to fix bug in path.js)
 Avoid having to construct controllers
 Optimize CSS size
 Optimize JS size
