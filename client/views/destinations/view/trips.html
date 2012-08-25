@@ -1,0 +1,15 @@
+<template name="trips">
+	<h2>Trips to {{name}}</h2>
+
+	{{#unless trips}}
+		<p>
+			There are no trips defined yet, please add one!
+		</p>
+	{{/unless}}
+	
+	<p>
+		<a href="/trips/new" class="btn">
+			Create a trip to this destination
+		</a>
+	</p>
+</template>
