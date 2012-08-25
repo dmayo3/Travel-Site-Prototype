@@ -1,6 +1,25 @@
 <template name="trips">
 	<h2>Trips to {{name}}</h2>
 
+	{{#each trips}}
+		<table class="table">
+			<thead>
+				<tr>
+					{{#eachProperty this}}
+						<th>{{key}}</th>
+					{{/eachProperty}}
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					{{#eachProperty this}}
+						<td>{{value}}</td>
+					{{/eachProperty}}
+				</tr>
+			</tbody>
+		</table>
+	{{/each}}
+
 	{{#unless trips}}
 		<p>
 			There are no trips defined yet, please add one!

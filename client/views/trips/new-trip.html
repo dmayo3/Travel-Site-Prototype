@@ -1,6 +1,20 @@
 <template name="newTrip">
 	<div class="row">
-		<div class="span12">
-			<h1>New Trip</h1>
+		{{#if destination}}
+			<div class="span12">
+				<h1>New trip to {{destination.name}}</h1>
+
+				<form class="new-trip well form-inline">
+					<label for="flight">Flight</label>
+					<input id="flight" name="flight" type="text" placeholder="From, To, Price" required>
+
+					<label for="accommodation">Accommodation</label>
+					<input id="accommodation" name="accommodation" type="text" placeholder="Hostel, B&amp;B, Hotel, Guesthouse..." required>
+
+					<button type="submit" class="btn">Go &raquo;</button>
+				</form>
+
+			</div>
+		{{/if}}
 	</div>
 </template>
