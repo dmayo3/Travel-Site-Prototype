@@ -17,30 +17,14 @@ class DestinationController extends BaseController
 
 		@map "/destination/:id", (request) ->
 			Template.viewDestination.destination = ->
-				if destinationsLoaded()
-					return getDestination(request.params["id"])
-				else
-					return null
+				Destinations.findOne({_id: request.params["id"]})
 
 			"viewDestination"
 
 		@map "/destinations", ->
 			Template.listDestinations.destinations = ->
-				getAllDestinations()
+				Destinations.find({})
 			
 			"listDestinations"
-
-	# TODO move to service
-	destinationsLoaded = ->
-		Session.get("destinationsLoaded") == true
-
-	getAllDestinations = ->
-		if destinationsLoaded()
-			return Destinations.find({})
-		else
-			return null
-
-	getDestination = (id) ->
-		Destinations.findOne({_id: id})
 
 new DestinationController
