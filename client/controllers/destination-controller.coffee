@@ -41,11 +41,6 @@ class DestinationController extends BaseController
 			return null
 
 	getDestination = (id) ->
-		destination = Destinations.findOne({_id: id})
-
-		if !destination
-			Views.notFound()
-
-		destination
+		Destinations.findOne({_id: id})
 
 new DestinationController

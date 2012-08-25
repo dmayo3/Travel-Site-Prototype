@@ -12,12 +12,15 @@
 
 		{{/with}}
 	{{/if}}
-	{{#else}}
+
+	{{! Hmm, for some reason the else block helper wouldn't work}}
+
+	{{#unless destination}}
 		<div class="row">
 			<div class="span12">
 				<h1>Loading, please wait...</h1>
 			</div>
 		</div>
-	{{/else}}
+	{{/unless}}
 
 </template>
