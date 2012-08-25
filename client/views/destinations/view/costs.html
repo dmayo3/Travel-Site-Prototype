@@ -1,0 +1,19 @@
+<template name="destinationCosts">
+	<h2>Cost Estimates</h2>
+	<table class="table">
+		<thead>
+			<tr>
+				{{#eachProperty costEstimates}}
+					<th>{{key}}</th>
+				{{/eachProperty}}
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				{{#eachProperty costEstimates}}
+					<th>{{{value.unit}}}{{value.cost}}</th>
+				{{/eachProperty}}
+			</tr>
+		</tbody>
+	</table>
+</template>
