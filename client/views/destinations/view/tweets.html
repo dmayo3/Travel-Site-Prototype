@@ -1,0 +1,10 @@
+<template name="showTweets">
+	{{#if tweets}}
+		<div class="span6">
+			<h2>What people are saying about {{name}}...</h2>
+			{{#each tweets}}
+				<p>{{text}}</p>
+			{{/each}}
+		</div>
+	{{/if}}
+</template>

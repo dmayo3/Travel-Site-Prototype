@@ -1,0 +1,37 @@
+<template name="destinationLinks">
+	<h2>Links</h2>
+	{{#if location}}
+		{{#with location}}
+		<p>
+			<a class="btn" href="http://www.skyscanner.net/flights-to/{{url airport}}/cheap-flights.html" target="_blank">
+				Find Cheap Flights to {{airport}}
+			</a>
+		</p>
+		<p>
+			<a class="btn" href="http://www.pintprice.com/city.php?/{{url city}}/{{url country}}" target="_blank">
+				Price of a Pint of Beer in {{city}}
+			</a>
+		</p>
+		<p>
+			<a class="btn" href="http://www.hostelworld.com/guides/city-guides/{{url city}}/{{url country}}/" target="_blank">
+				Free City Guides on Hostelworld
+			</a>
+		</p>
+		{{/with}}
+	{{/if}}
+	<p>
+		<a class="btn" href="http://www.hostelworld.com/search?search_keywords={{url name}}" target="_blank">
+			Find Hostels and B&amp;Bs
+		</a>
+	</p>
+	<p>
+		<a class="btn" href="http://www.tripadvisor.com/Search?q={{url name}}" target="_blank">
+			Search for {{name}} on TripAdvisor
+		</a>
+	</p>
+	<p>
+		<a class="btn" href="http://www.lonelyplanet.com/searchResult?q={{url name}}" target="_blank">
+			Lonely Planet Guides
+		</a>
+	</p>
+</template>

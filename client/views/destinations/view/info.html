@@ -1,0 +1,32 @@
+<template name="destinationInfo">
+
+	<div class="row">
+		<div class="span4">
+			{{#with photo}}
+				{{> photoStandalone}}
+			{{/with}}
+		</div>
+		{{#if location}}
+			{{#with location}}
+				<div class="span4">
+					{{> locationInfo}}
+				</div>
+			{{/with}}
+		{{/if}}
+		<div class="span4">
+			<h2>Description</h2>
+			<p>{{description}}</p>
+		</div>
+		<div class="span4">
+			{{> destinationLinks}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="span6">
+			<h2>Comment on this destination</h2>
+			{{> facebookComments}}
+		</div>
+		{{> showTweets}}
+	</div>
+
+</template>
