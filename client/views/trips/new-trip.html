@@ -4,12 +4,22 @@
 			<div class="span12">
 				<h1>New trip to {{destination.name}}</h1>
 
-				<form class="new-trip well form-inline">
+				<form class="new-trip well">
 					<label for="flight">Flight</label>
-					<input id="flight" name="flight" type="text" placeholder="From, To, Price" required>
+					<input id="flight" class="span3" name="flight" type="text" placeholder="From, To" required>
+
+					<label for="flight-price">Estimated Flight Price (for a budget return flight)</label>
+					<div class="input-prepend">
+						<span class="add-on">&euro;</span><input id="flight-price" class="span1" name="flightPrice" type="number" min="0" required>
+					</div>
 
 					<label for="accommodation">Accommodation</label>
-					<input id="accommodation" name="accommodation" type="text" placeholder="Hostel, B&amp;B, Hotel, Guesthouse..." required>
+					<input id="accommodation" class="span3" name="accommodation" type="text" placeholder="Hostel, B&amp;B, Hotel, Guesthouse..." required>
+
+					<label for="accommodation-price">Estimated Accommodation Price (for a typical double room)</label>
+					<div class="input-prepend">
+						<span class="add-on">&euro; / night</span><input id="accommodation-price" class="span1" name="accommodationPrice" type="number" min="0" required>
+					</div>
 
 					<button type="submit" class="btn">Go &raquo;</button>
 				</form>
