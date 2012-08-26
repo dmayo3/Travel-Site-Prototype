@@ -17,7 +17,7 @@ class DestinationController extends BaseController
 
 		@map "/destination/:id", (request) ->
 			Template.viewDestination.destination = ->
-				Destinations.findOne({_id: request.params["id"]})
+				DestinationService.get(request.params["id"])
 
 			"viewDestination"
 
