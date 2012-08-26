@@ -35,10 +35,14 @@ class DestinationService
 				unit: currency
 
 	getFlightCostEstimateFor = (destination) ->
-		averagePrice(trip.flightPrice for trip in destination.trips)
+		if destination.trips?
+			averagePrice(trip.flightPrice for trip in destination.trips)
+		else 0
 
 	getAccommodationCostEstimateFor = (destination) ->
-		averagePrice(trip.accommodationPrice for trip in destination.trips)
+		if destination.trips?
+			averagePrice(trip.accommodationPrice for trip in destination.trips)
+		else 0
 
 	averagePrice = (priceData) ->
 		validPriceData = _.reject priceData, (data) -> !data

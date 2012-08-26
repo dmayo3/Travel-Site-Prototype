@@ -1,0 +1,24 @@
+<template name="destinationCategories">
+
+	<h2>Go there for...</h2>
+
+	<form class="categories">
+		{{partial "category" id="sea" name="Sun/Sea/Sand"}}
+		{{partial "category" id="culture" name="Culture"}}
+		{{partial "category" id="adventure" name="Adventure"}}
+		{{partial "category" id="activity" name="Activity"}}
+		{{partial "category" id="nature" name="Nature"}}
+		{{partial "category" id="romance" name="Romance"}}
+		{{partial "category" id="food" name="Food & Drink"}}
+
+		<input type="submit" class="btn" value="Save Changes">
+	</form>
+
+</template>
+
+<template name="category">
+	<div class="category">
+		<label for="{{id}}">{{name}}</label>
+		<input id="{{id}}" name="{{id}}" type="checkbox" {{#if checked}}checked="checked"{{/if}}>
+	</div>
+</template>
