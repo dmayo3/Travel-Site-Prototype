@@ -1,41 +1,37 @@
 <template name="destinationInfo">
 
 	<div class="row">
-		<div class="span4">
+		<div class="span3">
 			{{#with photo}}
 				{{> photoStandalone}}
 			{{/with}}
 		</div>
-		<div class="span4">
+		<div class="span3 well">
 			{{> destinationCategories}}
+		</div>
+		<div class="span4 well">
+			{{> destinationCosts}}
 		</div>
 		{{#if location}}
 			{{#with location}}
-				<div class="span4">
+				<div class="span4 well">
 					{{> locationInfo}}
 				</div>
 			{{/with}}
 		{{/if}}
-		<div class="span4">
-			<h2>Description</h2>
-			<p>{{description}}</p>
-		</div>
-		<div class="span4">
-			{{> destinationLinks}}
-		</div>
-		<div class="span4">
-			{{> destinationCosts}}
-		</div>
 	</div>
 
 	<div class="row">
-		<div class="span6">
+		<div class="span6 well">
 			{{> trips}}
 		</div>
+		<div class="span4 well">
+			{{> destinationLinks}}
+		</div>
 	</div>
 
 	<div class="row">
-		<div class="span6">
+		<div class="span6 well">
 			<h2>Comment on this destination</h2>
 			{{> facebookComments}}
 		</div>
