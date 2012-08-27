@@ -6,17 +6,17 @@ class FindHolidayDestinationsController extends BaseController
 			"findHolidayDestinations"
 
 		@map "/destinations/categories/:category", (request) ->
-			category = request.params["category"]
+			category = Categories.findOne({urlId: request.params["category"]})
 
-			filter = {}
-			filter.categories = {$exists: true}
-			filter["categories.#{category}"] = true
+			if !category? 
+				Views.notFound()
+				return false
 
 			Template.listDestinations.destinations = ->
-				Destinations.find(filter)
-			
+				DestinationService.listBy(category)
+
 			Template.listDestinations.category = ->
-				category
+				category.label
 			
 			"listDestinations"
 

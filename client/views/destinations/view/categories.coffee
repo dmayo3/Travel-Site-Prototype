@@ -1,3 +1,6 @@
+Template.destinationCategories.allCategories = ->
+	Categories.find({})
+
 Template.category.checked = ->
 	categoryId = this.id
 

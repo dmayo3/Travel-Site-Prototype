@@ -10,6 +10,13 @@ class DestinationService
 
 		return id
 
+	@listBy: (category) ->
+		filter = {}
+		filter.categories = {$exists: true}
+		filter["categories.#{category.id}"] = true
+		
+		Destinations.find(filter)
+
 	@get: (id) ->
 		destination = Destinations.findOne({_id: id})
 
