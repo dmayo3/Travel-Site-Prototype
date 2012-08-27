@@ -3,7 +3,7 @@ class NavigationController extends BaseController
 	requests: ->
 
 		@map "/", ->
-			Views.redirectTo("/destinations")
+			Views.redirectTo("/destinations/find")
 			false
 
 		@map "/about", ->

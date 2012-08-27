@@ -24,6 +24,9 @@ class DestinationController extends BaseController
 		@map "/destinations", ->
 			Template.listDestinations.destinations = ->
 				Destinations.find({})
+
+			Template.listDestinations.category = ->
+				false
 			
 			"listDestinations"
 

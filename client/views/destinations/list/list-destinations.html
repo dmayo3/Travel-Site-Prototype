@@ -1,7 +1,12 @@
 <template name="listDestinations">
 
 	<div class="row">
-		<h1>Destinations</h1>
+		<h1>
+			Destinations
+			{{#if category}}
+				with {{category}}
+			{{/if}}
+		</h1>
 	</div>
 
 	<ul class="thumbnails">
