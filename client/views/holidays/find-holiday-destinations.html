@@ -3,13 +3,32 @@
 		<div class="span12">
 			<h1>I'd like to go somewhere with...</h1>
 
-			{{#each allCategories}}
-				{{> holidayCategoryButton}}
-			{{/each}}
+			<ul class="thumbnails">
+				{{#each allCategories}}
+					{{> holidayCategoryButton}}
+				{{/each}}
+			</ul>
+
 		</div>
 	</div>
 </template>
 
 <template name="holidayCategoryButton">
-	<a href="/destinations/categories/{{urlId}}" class="btn">{{label}}</a>
+	<li>
+		<div class="thumbnail category-icon">
+			<a href="/destinations/categories/{{urlId}}" class="btn">
+				<img src="/img/categories/{{icon}}" alt="{{label}}" title="{{label}}">
+			</a>
+
+			<h4>{{label}}</h4>
+			{{#if attribution}}
+				<p>
+					Icon by
+					<a href="{{attribution.url}}" target="_blank">
+						{{attribution.name}}
+					</a>
+				</p>
+			{{/if}}
+		</div>
+	</li>
 </template>

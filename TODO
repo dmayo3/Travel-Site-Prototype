@@ -1,11 +1,8 @@
-Implement trips
 Implement proper loading spinners across the site
-Improve handlebar template reusability
 Upgrade to Bootstrap 2.1
 Try out stellar mvc project
 Improve API response caching
 Remove Flickr API key from code! Use DeployConfig instead.
-Use meteor dependencies helper from atmostphere repo
 Fix masonry layout / resizing issue
 Error handling
 Improve URL format & RESTfulness (may need to fix bug in path.js)
@@ -14,6 +11,8 @@ Optimize CSS size
 Optimize JS size
 
 DONE
+ - Implement trips -
+ - Improve handlebar template reusability -
  - Convert JS -> Coffeescript -
  - Fix hyperlink handling -
  - Add 404 page -
