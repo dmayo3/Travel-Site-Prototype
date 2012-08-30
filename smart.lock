@@ -1,0 +1,19 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "auth",
+    "commit": "3fccd63b0b6831bdcdf9073d5f84c7ff4167a6da"
+  },
+  "dependencies": {
+    "basePackages": {
+      "deploy-config": {}
+    },
+    "packages": {
+      "deploy-config": {
+        "git": "https://github.com/possibilities/meteor-deploy-config.git",
+        "tag": "v0.0.3",
+        "commit": "2623b63b5786ab4a13d90bf290c26474ef1131d8"
+      }
+    }
+  }
+}

@@ -1,4 +1,7 @@
 #!/bin/bash
 
-meteor deploy my-early-travelsite-demo-project.meteor.com
+HOST=my-early-travelsite-demo-project.meteor.com
+
+meteor deploy $HOST
+mcfg -h $HOST -p 443 < API_KEYS
 

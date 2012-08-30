@@ -7,3 +7,4 @@ coffeescript
 http
 underscore
 spiderable
+deploy-config

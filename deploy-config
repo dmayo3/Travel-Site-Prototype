@@ -1,0 +1,4 @@
+#!/bin/bash
+
+mcfg --hostname localhost --port 3000
+

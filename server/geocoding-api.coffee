@@ -1,9 +1,7 @@
 class GeocodingApi
 	
-	@search: (query) ->
+	@search: (apiKey, query) ->
 		endPoint = "http://where.yahooapis.com/geocode"
-
-		apiKey = "dj0yJmk9S2U5MWEwTVdiRFluJmQ9WVdrOWNYQTBjMDAyTjJrbWNHbzlNakUxTXpRME1qWXkmcz1jb25zdW1lcnNlY3JldCZ4PTc0"
 
 		parameters =
 			appid: apiKey
@@ -16,7 +14,8 @@ class GeocodingApi
 			results = response.data.ResultSet.Results
 			return results[0]
 
-Meteor.methods
-	findLocation: (query) ->
-		this.unblock()
-		GeocodingApi.search(query)
+DeployConfig.get "geocodingApiKey", (key) ->
+	Meteor.methods
+		findLocation: (query) ->
+			this.unblock()
+			GeocodingApi.search(key, query)

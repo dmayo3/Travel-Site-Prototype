@@ -1,4 +1,6 @@
 class PhotoApi
+	constructor: (@key) ->
+
 	licenses =
 		attribution: 4
 		noDerivatives: 6
@@ -13,7 +15,6 @@ class PhotoApi
 
 	defaultParameters =
 		method: "flickr.photos.search"
-		api_key: "ce0df84cb253ea9614b4e11c65c03d73"
 		license: [licenses.attribution, licenses.noDerivatives, licenses.shareAlike, licenses.unrestricted].join()
 		sort: "interestingness-desc",
 		privacy_filter: privacyPublic
@@ -25,7 +26,7 @@ class PhotoApi
 		per_page: 12
 
 	search: (query) ->
-		parameters = _.extend defaultParameters, {text: query}
+		parameters = _.extend defaultParameters, {text: query, api_key: @key}
 		
 		result = Meteor.http.get endPoint, {params: parameters, timeout: 10000}
 
@@ -62,9 +63,11 @@ class PhotoApi
 
 		photos
 
-api = new PhotoApi
+DeployConfig.get "flickrApiKey", (key) ->
 
-Meteor.methods
-	searchPhotos: (query) ->
-		this.unblock()
-		api.search(query)
+	api = new PhotoApi(key)
+
+	Meteor.methods
+		searchPhotos: (query) ->
+			this.unblock()
+			api.search(query)
