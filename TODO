@@ -2,7 +2,6 @@ Implement proper loading spinners across the site
 Upgrade to Bootstrap 2.1
 Try out stellar mvc project
 Improve API response caching
-Remove Flickr API key from code! Use DeployConfig instead.
 Fix masonry layout / resizing issue
 Error handling
 Improve URL format & RESTfulness (may need to fix bug in path.js)
@@ -11,6 +10,7 @@ Optimize CSS size
 Optimize JS size
 
 DONE
+ - Remove Flickr API key from code! Use DeployConfig instead. -
  - Implement trips -
  - Improve handlebar template reusability -
  - Convert JS -> Coffeescript -
