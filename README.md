@@ -2,7 +2,11 @@
 
 A hobby project for a travel themed website built using [Meteor](http://www.meteor.com).
 
-It's a prototype - the code is a bit messy and there are no tests!
+It's a prototype - the code is a little messy, there are no tests and it's slightly buggy.
+
+### Demo
+
+You can see the most recently deployed version in action [here](http://bit.ly/dmtsite).
 
 ### Technologies
 
