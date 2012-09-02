@@ -1,15 +1,17 @@
-Implement proper loading spinners across the site
-Upgrade to Bootstrap 2.1
-Try out stellar mvc project
-Improve API response caching
-Fix masonry layout / resizing issue
+Fix null airport bug
 Error handling
+Improve API response caching
+Upgrade to Bootstrap 2.1
+Fix masonry layout / resizing issue
 Improve URL format & RESTfulness (may need to fix bug in path.js)
+Try out stellar mvc project
 Avoid having to construct controllers
 Optimize CSS size
 Optimize JS size
 
 DONE
+ - Apply Masonry layout to list destinations page -
+ - Implement proper loading spinners across the site -
  - Remove Flickr API key from code! Use DeployConfig instead. -
  - Implement trips -
  - Improve handlebar template reusability -
