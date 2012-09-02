@@ -1,6 +1,3 @@
-Template.chooseDestination.loadingPhotos = ->
-	Session.get("loadingPhotos")
-
 Template.chooseDestination.events =
 	'submit .choose-destination': (event) ->
 		event.preventDefault()

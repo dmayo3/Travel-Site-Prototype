@@ -1,0 +1,8 @@
+<template name="loading">
+	{{#if loading}}
+		<div id="loading" class="loading-spinner">
+			<img src="img/ajax-loader.gif" alt="{{loading.resources}}...">
+			<p>Loading {{loading.resources}}...</p>
+		</div>
+	{{/if}}
+</template>

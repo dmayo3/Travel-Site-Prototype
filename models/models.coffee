@@ -1,5 +1,7 @@
 Destinations = new Meteor.Collection("destinations")
 
+Session.set("loadingDestinations", true)
+
 if Meteor.is_server
 	Meteor.publish "destinations", ->
 		Destinations.find({})
@@ -9,4 +11,4 @@ if Meteor.is_server
 		remove: -> true
 else
 	Meteor.subscribe "destinations", ->
-		Session.set("destinationsLoaded", true)
+		Session.set("loadingDestinations", false)
