@@ -5,7 +5,11 @@
 	</p>
 	<ul>
 		<li>Country: {{country}}</li>
-		<li>City: {{city}}</li>
-		<li>Nearest airport: {{airport}}</li>
+		{{#if city}}
+			<li>City: {{city}}</li>
+		{{/if}}
+		{{#if airport}}
+			<li>Nearest airport: {{airport}}</li>
+		{{/if}}
 	</ul>
 </template>
