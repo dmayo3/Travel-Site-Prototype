@@ -43,12 +43,12 @@ class DestinationService
 
 	getFlightCostEstimateFor = (destination) ->
 		if destination.trips?
-			averagePrice(trip.flightPrice for trip in destination.trips)
+			averagePrice(element.trip.flightPrice for element in destination.trips)
 		else 0
 
 	getAccommodationCostEstimateFor = (destination) ->
 		if destination.trips?
-			averagePrice(trip.accommodationPrice for trip in destination.trips)
+			averagePrice(element.trip.accommodationPrice for element in destination.trips)
 		else 0
 
 	averagePrice = (priceData) ->
