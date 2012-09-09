@@ -1,8 +1,12 @@
-Fix trip data display bug
+Defer loading of FB comments plugin
+Use new templating features to avoid workaround hacks
+Provide UI feedback on saving destination categories
+Integrate twitter timeline widget
 Improve layout on destinations page
+Add touch event handling for mobiles
 Error handling
 Improve API response caching
-Upgrade to Bootstrap 2.1
+Upgrade to latest version of Bootstrap, streamline upgrading process
 Fix masonry layout / resizing issue
 Improve URL format & RESTfulness (may need to fix bug in path.js)
 Try out stellar mvc project
@@ -11,6 +15,7 @@ Optimize CSS size
 Optimize JS size
 
 DONE
+ - Fix trip data display bug -
  - Fix null airport bug -
  - Apply Masonry layout to list destinations page -
  - Implement proper loading spinners across the site -
